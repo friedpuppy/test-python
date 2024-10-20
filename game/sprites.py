@@ -18,3 +18,10 @@ class Player(pygame.sprite.Sprite): #calls the __init__ method for the inherited
 
         self.image = pygame.Surface([self.width, self.height]) #creation of a rectangle that is 32x32 pixels, then the rectangle is set as the sprite image
         self.image.fill(RED)
+
+        self.rect = self.image.get_rect()
+        self.rect.x = self.x #tells pygame the coordinates of our rectangle
+        self.rect.y = self.y
+
+    def update(self):
+        pass
