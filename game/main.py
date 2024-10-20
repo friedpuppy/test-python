@@ -20,14 +20,26 @@ class Game:
         self.enemies = pygame.sprite.LayeredUpdates()
         self.attacks = pygame.sprite.LayeredUpdates()
 
-        self.player = Player()
+        self.player = Player(self, 1, 2)
 
+    def events(self):
+        # game loop events
+        for event in pygame.event.get(): #every single event that happens in pygame
+            if event.type == pygame.QUIT:
+                self.playing = False
+                self.running = False
+                
     def update(self):
 
     def draw(self):
 
     def main(self):
-
+        # game loop
+        while self.playing:
+            self.events()
+            self.update() #so that the game isn't a static image
+            self.draw() #displays sprites
+        self.running = False
     
     def game_over(self):
 
