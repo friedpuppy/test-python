@@ -13,7 +13,7 @@ class Player(pygame.sprite.Sprite): #calls the __init__ method for the inherited
 
         self.x = x * TILESIZE
         self.y = y * TILESIZE
-        self.wdith = TILESIZE
+        self.width = TILESIZE
         self.height = TILESIZE
 
         self.image = pygame.Surface([self.width, self.height]) #creation of a rectangle that is 32x32 pixels, then the rectangle is set as the sprite image

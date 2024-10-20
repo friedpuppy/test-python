@@ -8,7 +8,7 @@ class Game:
         pygame.init()
         self.screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
         self.clock = pygame.time.Clock()
-        self.font = pygame.font.Font('Tahoma', 32)
+        #self.font = pygame.font.Font('Tahoma', 32)
         self.running = True
 
     def new(self):
@@ -53,3 +53,13 @@ class Game:
 
     def intro_screen(self):
         pass
+
+g = Game() #converts class into object
+g.intro_screen()#creates game object and runs intro_screen method. skips for now
+g.new() #creates sprite groups and player objects
+while g.running:
+    g.main() #game loop
+    g.game_over() #doesn't do anything currently but will do later
+
+pygame.quit()
+sys.exit()
