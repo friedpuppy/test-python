@@ -16,6 +16,11 @@ class Player(pygame.sprite.Sprite): #calls the __init__ method for the inherited
         self.width = TILESIZE
         self.height = TILESIZE
 
+        self.x_change = 0 # temporary variables that store the change in movement during one loop
+        self.y_change = 0
+
+        self.facing = 'down' #is character facing up left or down etc
+
         self.image = pygame.Surface([self.width, self.height]) #creation of a rectangle that is 32x32 pixels, then the rectangle is set as the sprite image
         self.image.fill(RED)
 
@@ -24,4 +29,25 @@ class Player(pygame.sprite.Sprite): #calls the __init__ method for the inherited
         self.rect.y = self.y
 
     def update(self):
-        pass
+        self.movement()
+
+        self.rect.x += self.x_change
+        self.rect.y += self.y_change
+
+        self.x_change = 0
+        self.y_change = 0
+
+    def movement(self):
+        keys = pygame.key.get_pressed() # list of every key pressed on keyboard stored in 'keys'
+        if keys[pygame.K_LEFT]:
+            self.x_change -= PLAYER_SPEED # referenced in config.py
+            self.facing = 'left'
+        if keys[pygame.K_RIGHT]:
+            self.x_change += PLAYER_SPEED
+            self.facing = 'right'
+        if keys[pygame.K_UP]:
+            self.y_change -= PLAYER_SPEED
+            self.facing = 'up'
+        if keys[pygame.K_DOWN]:
+            self.y_change += PLAYER_SPEED
+            self.facing = 'down'            
