@@ -39,15 +39,15 @@ class Player(pygame.sprite.Sprite): #calls the __init__ method for the inherited
 
     def movement(self):
         keys = pygame.key.get_pressed() # list of every key pressed on keyboard stored in 'keys'
-        if keys[pygame.K_LEFT]:
+        if keys[pygame.K_a]:
             self.x_change -= PLAYER_SPEED # referenced in config.py
             self.facing = 'left'
-        if keys[pygame.K_RIGHT]:
+        if keys[pygame.K_d]:
             self.x_change += PLAYER_SPEED
             self.facing = 'right'
-        if keys[pygame.K_UP]:
+        if keys[pygame.K_w]:
             self.y_change -= PLAYER_SPEED
             self.facing = 'up'
-        if keys[pygame.K_DOWN]:
+        if keys[pygame.K_s]:
             self.y_change += PLAYER_SPEED
             self.facing = 'down'            
